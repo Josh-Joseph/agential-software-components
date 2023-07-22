@@ -257,8 +257,8 @@ def purturb_policy(policy: dict[tuple[int, int], int]) -> dict[tuple[int, int], 
     return purturbed_policy
 
 
-def plot_performance_history(performance_history: list[int, float]) -> None:
-    """Plot performance history.
+def plot_agency_over_time(performance_history: list[int, float]) -> None:
+    """Plot agency over time.
 
     Args:
         performance_history: A list of tuples containing the iteration and policy performance.
@@ -270,9 +270,9 @@ def plot_performance_history(performance_history: list[int, float]) -> None:
                                     y=list(policy_performances), 
                                     mode='markers'))
 
-    fig.update_layout(title='Policy Performance over Iterations',
+    fig.update_layout(title='Agency over Iterations',
                       xaxis_title='Iteration',
-                      yaxis_title='Policy Performance')
+                      yaxis_title='Agency')
 
     fig.show()
 
@@ -294,4 +294,4 @@ if __name__ == '__main__':
             policy_performance = proposed_policy_performance
         performance_history.append([i, policy_performance])
         print(f"Iteration={i}; Policy performance={policy_performance}")
-    plot_performance_history(performance_history)
+    plot_agency_over_time(performance_history)
